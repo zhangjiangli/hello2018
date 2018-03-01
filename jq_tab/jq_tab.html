@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <title>jQ_tab</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        html {
+            font-family: '微软雅黑';
+        }
+
+        #web {
+            width: 100%;
+            height: 100%;
+        }
+
+        .choice {
+            width: 1200px;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        ul {
+            width: 1200px;
+            height: 50px;
+        }
+
+        li {
+            width: 240px;
+            height: 50px;
+            background: #3d8765;
+            color: #fff;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            float: left;
+        }
+
+        li.active {
+            background: #013b20;
+        }
+
+        .choice>section {
+            width: 1198px;
+            height: 400px;
+            text-align: center;
+            border: 1px solid #666;
+            display: none;
+        }
+
+        .choice>section.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="web">
+        <section class="choice">
+            <ul>
+                <li class="active">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+            <section class="active">a</section>
+            <section>b</section>
+            <section>c</section>
+            <section>d</section>
+            <section>e</section>
+        </section>
+    </section>
+</body>
+<script type="text/javascript">
+    $(function () {
+        // 选项卡
+        $('.choice ul').find('li').click(function () {
+            var index = $(this).index(); //创建索引。关联选项卡
+            $(this).addClass('active').siblings().removeClass('active');
+            $('.choice section').eq(index).addClass('active').siblings().removeClass('active');
+        })
+    })
+</script>
+
+</html>
